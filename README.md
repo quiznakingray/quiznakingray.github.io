@@ -1,2 +1,1 @@
 # quiznakingray.github.io
-hello
