@@ -1,0 +1,578 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #252525;
+    color: ghostwhite;
+    width: 100%;
+    min-height: 100vh;
+   
+    /*text-shadow: 2px 2px #000000;*/
+    margin: 0 auto;
+    align-content: center;
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #476930;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-shadow: 2px 2px #000000;
+    /*font-size: 50px;*/
+    font-size: clamp(20px,5vw, 50px);
+}
+
+#menu {
+    position: sticky;
+    top: 70px;
+    z-index: 10;
+}
+
+#menuIcon {
+    height: 40px;
+    /*display:block;*/
+    display:none;
+}
+
+.opened , .closed {
+    background-color: #476930;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style-type: none;
+    height: clamp(50px, 2vw, 100px);
+    /*position: absolute;*/
+    
+}
+
+
+
+.menu-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: clamp(20px, 2vw, 30px);
+    border: 1px solid black;
+    background-color: darkolivegreen;
+    text-shadow: 2px 2px #000000;
+}
+
+.menu-options:hover {
+    background-color: #6a9131;
+}
+
+.page {
+    background-color: #CABA9C;
+}
+
+
+#page1.open {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  
+    grid-template-rows: 10vw 1fr 2fr 1fr 5vw;
+}
+
+#overview-banner {  
+
+    background-image: url("images/earth_banner1.jpg");
+}
+#overview-image {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    margin: 10px auto;
+    
+}
+#overview-text {
+    padding: 3vw 7vw;
+    /* background-color: #8A6240;*/
+    grid-row: 2/3;
+    grid-column: 2/5;
+    color: black;
+    /*text-shadow: 2px 2px black;*/
+    margin: 10px 50px;
+    text-align: center;
+    font-size: 20px;
+   
+}
+
+p {
+    margin-bottom: 2vw;
+}
+
+
+#overview-text::first-letter {
+    initial-letter: 2 1;
+}
+
+#earthLayerImg {
+    grid-row: 3/4;
+    grid-column: 1/3;
+    background-color: #8A6240;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.earthImg {
+    position: absolute;
+    opacity:1;
+    transition: opacity 1s ease;
+}
+
+#earthLayerText {
+    grid-row: 3/4;
+    grid-column: 3/5;
+    background-color: #734f30;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-shadow: 2px 2px black;
+}
+
+.EarthLayerPage {
+    flex-basis: 100%;
+    font-size: clamp(20px, 2vw, 30px);
+    position: absolute;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+#earthLayerText li {
+    list-style-type: none;
+}
+
+#nextEarthLayerPage {
+    font-size: clamp(10px, 2vw, 20px);
+    text-align: center;
+    margin: 30px auto;
+    background-color: #8A6240;
+    position:relative;
+    top: 40%;
+}
+
+#tectonicImg {
+    grid-row: 4/5;
+    grid-column: 1/3;
+    margin:auto;
+}
+
+#tectonicExplaination {
+    grid-row: 4/5;
+    grid-column: 3/5;
+    margin: auto auto;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+}
+
+/*-----------------------------------------------------------------------*/
+
+#page2.open {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 10vw 0.5fr 1fr 2fr 5vw;
+}
+
+#types-banner {
+   
+    background-image: url("images/canyon_banner1.jpg");
+   
+}
+
+#types-startingtext {
+    grid-column: 1/5;
+    background-color: #8A6240;
+    padding: 3vw 7vw;
+    text-shadow: 2px 2px black;
+    margin: 10px 50px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#types-startingtext::first-letter {
+    initial-letter: 2 1;
+}
+
+#types-interactable {
+    grid-row: 3/4;
+    grid-column: 1/5;
+    display: grid;
+    grid-template-rows: 0.5fr 3fr 1fr;
+    margin: 10px 50px;
+}
+
+#types-interactable-text {
+    text-align: center;
+    font-size: 20px;
+    color:black;
+
+}
+
+#playingWindow {
+    height: 200px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.plateImg{
+    box-sizing:content-box;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+    position:absolute;
+}
+
+#plateLeftImg{
+    right: 130px;
+}
+
+#plateRightImg{
+    left: 130px;
+}
+
+#types-interactable-button {
+    grid-row: 3/4;
+    text-align: center;
+    align-content: center;
+    margin: 20px;
+    text-shadow: 2px 2px black;
+}
+#divergent, #convergent, #transform, #reset {
+    height: clamp(20px, 2vw, 30px);
+    display: inline;
+    background-color: #734f30;
+    margin: 10px;
+}
+
+#reset{
+    display:none;
+}
+
+@keyframes divergentRightMove {
+    0% {
+        left: 130px;
+    }
+
+    100% {
+        left: 200px;
+    }
+}
+
+@keyframes divergentLeftMove{
+    0% {
+        right: 130px;
+    }
+
+    100% {
+        right: 200px;
+    }
+}
+
+@keyframes convergentRightMove{
+
+    0% {
+        right: 0px;  opacity:1;
+    }
+    100%
+    {
+        right: 70px; opacity:0.5;
+    }
+
+}
+
+@keyframes convergentLeftMove {
+
+    0% {
+        left: 0px; opacity:1;
+    }
+
+    100% {
+        left: 70px; opacity:0.5;
+    }
+}
+
+@keyframes transformRightMove{
+    0%{
+        right:0px ; top: 0px; 
+    }
+
+    100%{
+        right: 70px; top:10px;
+    }
+}
+
+@keyframes transformLeftMove {
+    0% {
+        left: 0px;
+        bottom: 0px;
+    }
+
+    100% {
+        left: 70px;
+        bottom: 10px;
+    }
+}
+
+@keyframes fadeIn{
+    0%
+    {
+        opacity:0;
+    }
+
+    100%{
+        opacity:1;
+    }
+}
+
+.divergentLeft, .divergentRight, .convergentRight, .convergentLeft, .transformLeft, .transformRight {
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+.divergentRight {
+    animation-name: divergentRightMove;
+    
+}
+
+.divergentLeft {
+    animation-name: divergentLeftMove;
+    
+}
+
+.convergentRight {
+    animation-name: convergentRightMove;
+}
+
+.convergentLeft {
+    animation-name: convergentLeftMove;
+}
+
+.transformRight {
+    animation-name: transformRightMove;
+}
+
+.transformLeft {
+    animation-name: transformLeftMove;
+}
+
+#boundaries {
+    grid-column: 1/ 5;
+    background-color: #734f30;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px 50px;
+}
+
+.boundariesInfo {
+    text-shadow: 2px 2px black;
+    padding: 0 120px;
+    font-size: 25px;
+    position: absolute;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+
+.banner {
+    height: 10vw;
+    grid-column: 1/5;
+    text-align: center;
+    font-size: 4vw;
+    text-shadow: 2px 2px black;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+
+#page3.open {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 10vw 3vw repeat(5, auto) 5vw;
+    text-align: center;
+}
+#issues-banner {
+    background-image: url("images/volcano_banner1.jpg");
+    grid-column: 1/5;
+}
+
+
+#issue1-description, #issue1-header {
+    grid-column: 1/5;
+    text-align: center;
+    color:black;
+
+}
+
+.issue-header{
+    font-size: clamp(50px, 2vw, 100px);
+}
+
+.issue-description {
+    padding: 3vw 7vw;
+  
+    margin: 10px 50px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.impacts {
+    background-color: #8A6240;
+    padding: 3vw 7vw;
+    text-shadow: 2px 2px black;
+    margin: 10px 50px;
+    text-align: center;
+    font-size: 20px;
+}
+#issue1-impact1 {
+    grid-column: 1/3;
+   
+}
+
+#issue1-impact1-img{
+    grid-column: 3/5;
+    margin: auto;
+}
+
+#issue1-impact2{
+    grid-column:1/5;
+}
+
+#issue2-header{
+    grid-column:1/5;
+    color:black;
+}
+
+#issue2-description {
+    grid-column: 3/5;
+    color: black;
+}
+
+#issue2-img {
+    grid-column: 1/3;
+    margin: auto;
+}
+/*--------------------------------------------------------------------------------------------------------*/
+.closed-pages {
+    display: none;
+}
+
+.closed-EarthLayer, .closed-BoundariesText {
+    /*display:none;*/
+    opacity:0;
+}
+
+.eImg-NotShown {
+    opacity: 0.25;
+}
+
+li {
+    list-style-type: none;
+}
+
+@media screen and (max-width: 800px) {
+    header {
+        justify-content: start;
+    }
+
+        header h1 {
+            margin-left: 22vw;
+        }
+
+    #menuIcon {
+        display: block;
+    }
+
+    .closed {
+        display: none;
+        opacity: 1;
+    }
+
+    .opened {
+        position: absolute;
+    }
+
+    #page1.open {
+        grid-template-rows: 10vw 1fr 1fr 1fr 1fr 1fr 1fr 5vw;
+        grid-template-columns: none;
+    }
+
+    #overview-image {
+        grid-column: none;
+    }
+
+    #overview-text {
+        grid-row: 3/4;
+        grid-column: none;
+    }
+
+    #earthLayerImg {
+        grid-row: 4/5;
+        grid-column: none;
+    }
+
+    #earthLayerText {
+        grid-row: 5/6;
+        grid-column: none;
+    }
+
+    #nextEarthLayerPage {
+        font-size: 20px;
+        top: 45%;
+    }
+
+    #tectonicImg {
+        grid-row: 6/7;
+        grid-column: none;
+    }
+
+    #tectonicExplaination {
+        grid-row: 7/8;
+        grid-column: none;
+    }
+
+    /*-----------------------------------------------------------------*/
+
+    #types-interactable {
+        grid-template-rows: 5vw 1.5fr 1fr;
+    }
+
+    #types-interactable-button {
+        margin: 20px auto;
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+
+    #page3.open {
+        display:block;
+    }
+
+  
+
+}
